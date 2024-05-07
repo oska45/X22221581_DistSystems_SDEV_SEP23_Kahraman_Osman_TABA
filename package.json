@@ -1,0 +1,19 @@
+{
+  "name": "x22221581_distsystems_sdev_sep23_kahraman_osman_taba",
+  "version": "1.0.0",
+  "description": "",
+  "main": "floor_publisher.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mqtt": "^5.5.5",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5"
+  }
+}

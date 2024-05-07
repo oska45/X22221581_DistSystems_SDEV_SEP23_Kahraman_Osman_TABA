@@ -1,0 +1,93 @@
+
+syntax = "proto3";
+
+ product_management;
+
+// Service definition for Product Management
+service ProductManagement {
+    // Retrieves details of a single product by its ID
+    rpc GetProductDetails(GetProductDetailsRequest) returns (GetProductDetailsResponse) {}
+
+    // Searches for products based on specified criteria
+    rpc SearchProducts(SearchProductsRequest) returns (SearchProductsResponse) {}
+
+    // Adds a product to the user's shopping cart
+    rpc AddToCart(AddToCartRequest) returns (AddToCartResponse) {}
+
+    // Completes the checkout process for the user's shopping cart
+    rpc Checkout(CheckoutRequest) returns (CheckoutResponse) {}
+
+    // Tracks the status of a user's order
+    rpc TrackOrder(TrackOrderRequest) returns (TrackOrderResponse) {}
+}
+
+// Request message for GetProductDetails RPC
+message GetProductDetailsRequest {
+    string product_id = 1;
+}
+
+// Response message for GetProductDetails RPC
+message GetProductDetailsResponse {
+    string name = 1;
+    string description = 2;
+    float price = 3;
+    int32 quantity = 4;
+    
+}
+
+// Request message for SearchProducts RPC
+message SearchProductsRequest {
+    string query = 1;
+   
+}
+
+// Response message for SearchProducts RPC
+message SearchProductsResponse {
+    repeated Product products = 1;
+}
+
+// Request message for AddToCart RPC
+message AddToCartRequest {
+    string product_id = 1;
+    int32 quantity = 2;
+    
+}
+
+// Response message for AddToCart RPC
+message AddToCartResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+// Request message for Checkout RPC
+message CheckoutRequest {
+    
+}
+
+// Response message for Checkout RPC
+message CheckoutResponse {
+    bool success = 1;
+    string order_id = 2;
+   
+}
+
+// Request message for TrackOrder RPC
+message TrackOrderRequest {
+    string order_id = 1;
+}
+
+// Response message for TrackOrder RPC
+message TrackOrderResponse {
+    string status = 1;
+   
+}
+
+// Message representing a product
+message Product {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    float price = 4;
+    int32 quantity = 5;
+   
+}
